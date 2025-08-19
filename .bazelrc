@@ -1,4 +1,2 @@
-8.3.1
-
 # Enable Bzlmod for every Bazel command
 common --enable_bzlmod

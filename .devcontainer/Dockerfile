@@ -17,4 +17,6 @@ RUN curl -L https://github.com/bazelbuild/bazelisk/releases/download/v1.27.0/baz
     chmod +x /usr/local/bin/bazelisk && \
     ln -s /usr/local/bin/bazelisk /usr/local/bin/bazel
 
+COPY .devcontainer/bazel_completion.bash /etc/bash_completion.d/bazel_completion.bash
+
 COPY .devcontainer/.bashrc /root/.bashrc
