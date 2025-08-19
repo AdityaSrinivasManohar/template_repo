@@ -1,0 +1,15 @@
+# Ignore ros2monitor logs
+logs/
+
+# Ignore Python cache files
+**/__pycache__**
+**/.pytest_cache**
+
+# Ignore ruff
+**/.ruff_cache
+
+#Ignore egg and dist files
+*.egg
+*.egg-info
+
+*bazel-*

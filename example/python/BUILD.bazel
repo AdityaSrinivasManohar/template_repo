@@ -1,0 +1,15 @@
+load("@rules_python//python:defs.bzl", "py_binary", "py_library")
+
+py_binary(
+    name = "main",
+    srcs = ["main.py"],
+    deps = [
+        ":deps",
+        "@py_deps//numpy",
+    ],
+)
+
+py_library(
+    name = "deps",
+    srcs = glob(["**/*.py"]),
+)
