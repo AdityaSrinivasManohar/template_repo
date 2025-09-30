@@ -1,0 +1,6 @@
+exports_files(
+    [
+        "ruff.toml",
+    ],
+    visibility = ["//visibility:public"],
+)

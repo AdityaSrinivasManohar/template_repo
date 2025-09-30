@@ -1,0 +1,1 @@
+# linter.bzl needs to be in a bazel package
