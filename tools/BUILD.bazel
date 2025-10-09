@@ -1,0 +1,5 @@
+sh_binary(
+    name = "ruff",
+    srcs = ["@ruff-linux//:ruff"],
+    visibility = ["//visibility:public"],
+)

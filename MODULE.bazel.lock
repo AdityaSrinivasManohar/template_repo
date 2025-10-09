@@ -145,6 +145,35 @@
   },
   "selectedYankedVersions": {},
   "moduleExtensions": {
+    "//tools/lint:ruff.bzl%ruff": {
+      "general": {
+        "bzlTransitiveDigest": "mPFtfcc4byFonaslQIphLKZyT7ZydP46lmx4WblwH8I=",
+        "usagesDigest": "bi2nvdCLeuNGt5rnfAaj1dSTnRqsORn4BncrZ9nZ6Z0=",
+        "recordedFileInputs": {},
+        "recordedDirentsInputs": {},
+        "envVariables": {},
+        "generatedRepoSpecs": {
+          "ruff-linux": {
+            "repoRuleId": "@@bazel_tools//tools/build_defs/repo:http.bzl%http_archive",
+            "attributes": {
+              "build_file_content": "exports_files([\"ruff\"])",
+              "strip_prefix": "ruff-x86_64-unknown-linux-gnu",
+              "sha256": "28fe06f700caf99eee235f90e6e349f48b7f9a4b0d42e3ee5b3686f9259649a3",
+              "urls": [
+                "https://github.com/astral-sh/ruff/releases/download/0.14.0/ruff-x86_64-unknown-linux-gnu.tar.gz"
+              ]
+            }
+          }
+        },
+        "recordedRepoMappingEntries": [
+          [
+            "",
+            "bazel_tools",
+            "bazel_tools"
+          ]
+        ]
+      }
+    },
     "@@rules_kotlin+//src/main/starlark/core/repositories:bzlmod_setup.bzl%rules_kotlin_extensions": {
       "general": {
         "bzlTransitiveDigest": "hUTp2w+RUVdL7ma5esCXZJAFnX7vLbVfLd7FwnQI6bU=",

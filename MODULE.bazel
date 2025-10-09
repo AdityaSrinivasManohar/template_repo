@@ -21,3 +21,6 @@ pip.parse(
     requirements_lock = "//utils/python:requirements_lock.txt",
 )
 use_repo(pip, "py_deps")
+
+ruff = use_extension("//tools/lint:ruff.bzl", "ruff")
+use_repo(ruff, "ruff-linux")
