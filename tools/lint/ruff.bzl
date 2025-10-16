@@ -1,6 +1,9 @@
+"""Ruff module extension for linting Python code."""
+
 load("@bazel_tools//tools/build_defs/repo:http.bzl", "http_archive")
 
-def _ruff_ext_impl():
+# buildifier: disable=unused-variable
+def _ruff_ext_impl(ctx):
     ruff_version = "0.14.0"
     http_archive(
         name = "ruff-linux",
