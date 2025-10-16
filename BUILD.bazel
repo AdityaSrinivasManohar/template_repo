@@ -1,0 +1,19 @@
+"""aliases for faster access to tools"""
+
+alias(
+    name = "ruff",
+    actual = "//tools:ruff",
+    visibility = ["//visibility:public"],
+)
+
+alias(
+    name = "buildifier_check",
+    actual = "//tools:buildifier_check",
+    visibility = ["//visibility:public"],
+)
+
+alias(
+    name = "buildifier_fix",
+    actual = "//tools:buildifier_fix",
+    visibility = ["//visibility:public"],
+)

@@ -13,3 +13,4 @@ logs/
 *.egg-info
 
 *bazel-*
+*MODULE.bazel.lock*
