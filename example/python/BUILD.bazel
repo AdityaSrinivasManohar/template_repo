@@ -2,6 +2,7 @@ load("@rules_python//python:defs.bzl", "py_binary", "py_library")
 
 py_binary(
     name = "hello_world_py",
+    main = "hello_world.py",
     srcs = ["hello_world.py"],
     deps = [
         ":deps",

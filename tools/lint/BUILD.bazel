@@ -1,0 +1,13 @@
+load("@rules_shell//shell:sh_binary.bzl", "sh_binary")
+
+filegroup(
+       name = "clang_tidy_config",
+       srcs = [".clang-tidy"],
+       visibility = ["//visibility:public"],
+)
+
+sh_binary(
+    name = "clang_tidy_check",
+    srcs = ["clang_tidy_run.sh"],
+    visibility = ["//visibility:public"],
+)
