@@ -1,2 +1,9 @@
-Checks: '-*,modernize-*,performance-*,cppcoreguidelines-*'
-HeaderFilterRegex: '.*'
+UseColor: true
+
+Checks: >
+    bugprone-*,
+    cppcoreguidelines-*,
+    google-*,
+    performance-*,
+
+WarningsAsErrors: "*"
