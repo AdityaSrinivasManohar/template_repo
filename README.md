@@ -13,7 +13,7 @@ bazel run ruff check /workspaces/template_repo
 
 Has clang-tidy for cpp linting
 ```
-bazel run clang-tidy
+bazel run clang_tidy
 ```
 
 One of the issues now is that it uses the host systems clang, but if you use a c++ toolchain in bazel then follow https://github.com/erenon/bazel_clang_tidy?tab=readme-ov-file#use-a-non-system-clang-tidy

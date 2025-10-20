@@ -10,7 +10,7 @@ RUN apt-get update && \
     ros-jazzy-demo-nodes-cpp \
     ros-jazzy-foxglove-bridge \
     ros-jazzy-tf2-ros && \
-    clang-tidy && \
+    # clang-tidy && \
     apt-get clean
 
 RUN curl -L https://github.com/bazelbuild/bazelisk/releases/download/v1.27.0/bazelisk-linux-amd64 -o bazelisk && \
