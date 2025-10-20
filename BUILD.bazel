@@ -17,3 +17,9 @@ alias(
     actual = "//tools:buildifier_fix",
     visibility = ["//visibility:public"],
 )
+
+alias(
+    name = "clang_tidy",
+    actual = "//tools/lint:clang_tidy_check",
+    visibility = ["//visibility:public"],
+)
