@@ -14,3 +14,7 @@ logs/
 
 *bazel-*
 *MODULE.bazel.lock*
+
+# Ignore symlinks created by setup_clang_env.sh
+tools/lint/clangd
+.clang-tidy

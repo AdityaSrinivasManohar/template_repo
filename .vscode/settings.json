@@ -1,0 +1,10 @@
+{
+  // "clangd.path": "/root/.cache/bazel/_bazel_root/c240b8f664d1bddc5100f3605c999cc8/external/toolchains_llvm++llvm+llvm_toolchain_21/bin/clangd", // optional: path to clangd if not on PATH
+  "clangd.path": "${workspaceFolder}/tools/lint/clangd",
+  "clangd.arguments": [
+    "--clang-tidy",
+    "--header-insertion=never",
+    "--compile-commands-dir=${workspaceFolder}/",
+    "--query-driver=**"
+  ]
+}
