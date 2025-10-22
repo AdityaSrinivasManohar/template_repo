@@ -14,7 +14,8 @@
 				"ms-python.vscode-pylance",
 				"charliermarsh.ruff",
 				"tamasfe.even-better-toml",
-				"bazelbuild.vscode-bazel"
+				"bazelbuild.vscode-bazel",
+				"llvm-vs-code-extensions.vscode-clangd"
 			]
 		}
 	},
