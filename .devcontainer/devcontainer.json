@@ -15,7 +15,8 @@
 				"charliermarsh.ruff",
 				"tamasfe.even-better-toml",
 				"bazelbuild.vscode-bazel",
-				"llvm-vs-code-extensions.vscode-clangd"
+				"llvm-vs-code-extensions.vscode-clangd",
+				"github.vscode-github-actions"
 			]
 		}
 	},

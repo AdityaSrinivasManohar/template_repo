@@ -7,13 +7,18 @@ on:
 jobs:
   lint:
     runs-on: ubuntu-latest
-    name: Run linters inside DevContainer
+    name: Jobs in DevContainer
 
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
+      
+      - name: Build DevContainer
+        uses: devcontainers/ci@v0.3
+        with:
+          runCmd: echo "DevContainer built ✅"
 
-      - name: Build and run DevContainer
+      - name: Run linter and format checks
         uses: devcontainers/ci@v0.3
         with:
           runCmd: |
@@ -21,3 +26,5 @@ jobs:
             bazel run ruff check /workspaces/template_repo
             bazel run clang_tidy
             bazel run clang_format_check
+            bazel run buildifier_check
+            echo "✅ All linters passed!"
