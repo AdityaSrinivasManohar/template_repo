@@ -5,5 +5,7 @@ Checks: >
     cppcoreguidelines-*,
     google-*,
     performance-*,
+    clang-format*,
+    readability-*
 
 WarningsAsErrors: "*"
