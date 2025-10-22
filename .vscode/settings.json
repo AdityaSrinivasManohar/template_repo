@@ -1,0 +1,9 @@
+{
+  "clangd.path": "${workspaceFolder}/tools/lint/clangd",
+  "clangd.arguments": [
+    "--clang-tidy",
+    "--header-insertion=never",
+    "--compile-commands-dir=${workspaceFolder}/",
+    "--query-driver=**"
+  ]
+}
