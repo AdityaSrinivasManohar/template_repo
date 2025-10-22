@@ -8,6 +8,8 @@ LLVM_TOOLCHAIN_PATH="$(bazel info output_base)/external/toolchains_llvm++llvm+ll
 TARGET_CLANGD_LINK="$WORKSPACE_ROOT/tools/lint/clangd"
 TARGET_CLANG_TIDY_LINK="$WORKSPACE_ROOT/.clang-tidy"
 SOURCE_CLANG_TIDY="$WORKSPACE_ROOT/tools/lint/.clang-tidy"
+TARGET_CLANG_FORMAT_LINK="$WORKSPACE_ROOT/.clang-format"
+SOURCE_CLANG_FORMAT="$WORKSPACE_ROOT/tools/lint/.clang-format"
 
 echo "Setting up Clang environment for VSCode..."
 echo "Workspace: $WORKSPACE_ROOT"
@@ -37,6 +39,14 @@ if [ -f "$SOURCE_CLANG_TIDY" ]; then
   echo "✅ Linked .clang-tidy -> $SOURCE_CLANG_TIDY"
 else
   echo "⚠️ No .clang-tidy found in tools/lint/, skipping."
+fi
+
+# --- Symlink .clang-format config ---
+if [ -f "$SOURCE_CLANG_FORMAT" ]; then
+  ln -sf "$SOURCE_CLANG_FORMAT" "$TARGET_CLANG_FORMAT_LINK"
+  echo "✅ Linked .clang-format -> $SOURCE_CLANG_FORMAT"
+else
+  echo "⚠️ No .clang-format found in tools/lint/, skipping."
 fi
 
 echo "🎉 Setup complete. You can now point VSCode to: tools/lint/clangd"

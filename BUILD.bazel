@@ -23,3 +23,15 @@ alias(
     actual = "//tools/lint:clang_tidy_check",
     visibility = ["//visibility:public"],
 )
+
+alias(
+    name = "clang_format_check",
+    actual = "//tools/lint:clang_format_check",
+    visibility = ["//visibility:public"],
+)
+
+alias(
+    name = "clang_format_fix",
+    actual = "//tools/lint:clang_format_fix",
+    visibility = ["//visibility:public"],
+)

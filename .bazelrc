@@ -11,3 +11,20 @@ build:clang-tidy --@bazel_clang_tidy//:clang_tidy_config=//tools/lint:clang_tidy
 
 # Use the clang-tidy from LLVM 21.1.0 toolchain
 build:clang-tidy --@bazel_clang_tidy//:clang_tidy_executable=@llvm_toolchain_21//:clang-tidy
+
+## clang format
+build:clang-format --@bazel_clang_format//:binary=@llvm_toolchain_21//:clang-format
+build:clang-format --output_groups=report
+build:clang-format --@bazel_clang_format//:config=//tools/lint:clang_format_config
+build:clang-format --aspects=@bazel_clang_format//:defs.bzl%check_aspect
+
+
+build:clang-format-fix --@bazel_clang_format//:binary=@llvm_toolchain_21//:clang-format
+build:clang-format-fix --output_groups=report
+build:clang-format-fix --@bazel_clang_format//:config=//tools/lint:clang_format_config
+build:clang-format-fix --aspects=@bazel_clang_format//:defs.bzl%fix_aspect
+build:clang-format-fix --use_action_cache=false
+
+## additional registries
+common --registry=https://bcr.bazel.build
+common --registry=https://raw.githubusercontent.com/digiboys/bazel-registry/main
