@@ -15,7 +15,8 @@
 				"charliermarsh.ruff",
 				"tamasfe.even-better-toml",
 				"bazelbuild.vscode-bazel",
-				"llvm-vs-code-extensions.vscode-clangd"
+				"llvm-vs-code-extensions.vscode-clangd",
+				"github.vscode-github-actions"
 			]
 		}
 	},
@@ -23,10 +24,5 @@
 	"containerEnv": {
 		"SSH_AUTH_SOCK": "/ssh-agent",
         "PYTHONPATH": "/workspaces/Template_repo:/opt/ros/jazzy/lib/python3.12/site-packages:/venv/lib/python3.12/site-packages"
-    },
-
-	"mounts": [
-		"source=${localEnv:HOME}/.gitconfig,target=/root/.gitconfig,type=bind,consistency=cached",
-		"source=${localEnv:HOME}/.ssh/id_rsa,target=/root/.ssh/id_rsa,type=bind,consistency=cached"
-	]
+    }
 }

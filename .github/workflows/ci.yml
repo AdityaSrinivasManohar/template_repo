@@ -1,0 +1,30 @@
+name: Template_repo_CI
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+    name: Jobs in DevContainer
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+      
+      - name: Build DevContainer
+        uses: devcontainers/ci@v0.3
+        with:
+          runCmd: echo "DevContainer built ✅"
+
+      - name: Run linter and format checks
+        uses: devcontainers/ci@v0.3
+        with:
+          runCmd: |
+            echo "🧹 Running all linters inside DevContainer..."
+            bazel run ruff check /workspaces/template_repo
+            bazel run clang_tidy
+            bazel run clang_format_check
+            bazel run buildifier_check
+            echo "✅ All linters passed!"

@@ -4,8 +4,6 @@ Checks: >
     bugprone-*,
     cppcoreguidelines-*,
     google-*,
-    performance-*,
-    clang-format*,
-    readability-*
+    performance-*
 
 WarningsAsErrors: "*"

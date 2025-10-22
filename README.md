@@ -11,6 +11,7 @@ bazel build //...
 Contains the ruff linter for python
 ```
 bazel run ruff check /workspaces/template_repo
+bazel run ruff format /workspaces/template_repo
 ```
 
 Has clang-tidy for cpp linting
