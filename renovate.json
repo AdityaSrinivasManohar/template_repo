@@ -3,10 +3,9 @@
   "extends": [
     "config:recommended"
   ],
-  "schedule": [
-    "weekly"
-  ],
-  "managerFilePatterns": [
-    "third_party/python/requirements\\.in$"
-  ]
+  "pip_requirements": {
+    "managerFilePatterns": [
+        "third_party/python/requirements.in"
+    ]
+  }
 }
