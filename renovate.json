@@ -3,7 +3,7 @@
   "extends": [
     "config:recommended"
   ],
-  "managerFilePatterns": [
-    "requirements\\.in$"
-  ]
+  "pip_requirements": {
+    "managerFilePatterns": ["*requirements.in*"]
+  }
 }
