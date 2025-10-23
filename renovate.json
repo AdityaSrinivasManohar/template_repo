@@ -3,7 +3,7 @@
   "extends": [
     "config:recommended"
   ],
-  "pip-compile": {
+  "pip_requirements": {
     "managerFilePatterns": [
         "third_party/python/requirements.in"
     ]
