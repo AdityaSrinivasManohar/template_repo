@@ -6,7 +6,7 @@
   "schedule": [
     "weekly"
   ],
-  "pip_requirements": {
-    "managerFilePatterns": ["third_party/python/requirements.in*"]
-  }
+  "managerFilePatterns": [
+    "third_party/python/requirements\\.in$"
+  ]
 }
