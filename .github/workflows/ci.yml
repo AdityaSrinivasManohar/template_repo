@@ -13,7 +13,7 @@ jobs:
   setup:
     runs-on: ubuntu-latest
     outputs:
-      image-name: ghcr.io/${{ github.repository }}/devcontainer
+      image-name: ghcr.io/adsm/devcontainer
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
@@ -30,7 +30,7 @@ jobs:
       - name: Build and cache DevContainer image
         uses: devcontainers/ci@v0.3
         with:
-          imageName: ghcr.io/${{ github.repository }}/devcontainer
+          imageName: ghcr.io/adsm/devcontainer
           runCmd: echo "✅ DevContainer built"
   
   # Run linters inside cached DevContainer
