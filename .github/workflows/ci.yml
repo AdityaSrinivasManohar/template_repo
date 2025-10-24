@@ -4,35 +4,89 @@ on:
   push:
   pull_request:
 
-jobs:
-  lint:
-    runs-on: ubuntu-latest
-    name: Jobs in DevContainer
+permissions:
+  contents: read
+  packages: write
 
+jobs:
+  # Build DevContainer and warm cache
+  setup:
+    runs-on: ubuntu-latest
+    outputs:
+      image-name: ghcr.io/${{ github.repository }}:devcontainer
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
-      
-      - name: Build DevContainer
+
+      - name: Cache Bazel build outputs
+        uses: actions/cache@v4
+        with:
+          path: |
+            ~/.cache/bazel
+          key: bazel-${{ runner.os }}-${{ hashFiles('**/MODULE.bazel', '**/*.bzl', '**/BUILD') }}
+          restore-keys: |
+            bazel-${{ runner.os }}-
+
+      - name: Build and cache DevContainer image
         uses: devcontainers/ci@v0.3
         with:
-          runCmd: echo "DevContainer built ✅"
+          imageName: ghcr.io/${{ github.repository }}:devcontainer
+          cacheFrom: ghcr.io/${{ github.repository }}:devcontainer
+          cacheTo: ghcr.io/${{ github.repository }}:devcontainer
+          push: never
+          runCmd: echo "✅ DevContainer built (and cached)"
+  
+  # Run linters inside cached DevContainer
+  lint:
+    runs-on: ubuntu-latest
+    needs: setup
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Restore Bazel cache
+        uses: actions/cache@v4
+        with:
+          path: ~/.cache/bazel
+          key: bazel-${{ runner.os }}-${{ hashFiles('**/MODULE.bazel', '**/*.bzl', '**/BUILD') }}
+          restore-keys: |
+            bazel-${{ runner.os }}-
 
       - name: Run linter and format checks
         uses: devcontainers/ci@v0.3
         with:
+          imageName: ${{ needs.setup.outputs.image-name }}
           runCmd: |
-            echo "🧹 Running all linters inside DevContainer..."
+            set -euo pipefail
+            echo "🧹 Running linters inside DevContainer..."
             bazel run ruff check /workspaces/template_repo
             bazel run clang_tidy
             bazel run clang_format_check
-            bazel run buildifier_check
+            bazel run //tools:buildifier_check_ci
             echo "✅ All linters passed!"
-      
+
+  # Build test inside cached DevContainer
+  build:
+    runs-on: ubuntu-latest
+    needs: setup
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Restore Bazel cache
+        uses: actions/cache@v4
+        with:
+          path: ~/.cache/bazel
+          key: bazel-${{ runner.os }}-${{ hashFiles('**/MODULE.bazel', '**/*.bzl', '**/BUILD') }}
+          restore-keys: |
+            bazel-${{ runner.os }}-
+
       - name: Test if build succeeds
         uses: devcontainers/ci@v0.3
         with:
+          imageName: ${{ needs.setup.outputs.image-name }}
           runCmd: |
-            echo "🛠️ Testing if build succeeds inside DevContainer..."
+            set -euo pipefail
+            echo "🛠️ Building project inside DevContainer..."
             bazel build //...
             echo "✅ Build succeeded!"
