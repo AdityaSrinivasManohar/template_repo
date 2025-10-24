@@ -28,3 +28,11 @@ jobs:
             bazel run clang_format_check
             bazel run buildifier_check
             echo "✅ All linters passed!"
+      
+      - name: Test if build succeeds
+        uses: devcontainers/ci@v0.3
+        with:
+          runCmd: |
+            echo "🛠️ Testing if build succeeds inside DevContainer..."
+            bazel build //...
+            echo "✅ Build succeeded!"
