@@ -21,3 +21,13 @@ buildifier(
     name = "buildifier_fix",
     visibility = ["//visibility:public"],
 )
+
+buildifier(
+    name = "buildifier_check_ci",
+    exclude_patterns = [
+        "./.git/*",
+    ],
+    lint_mode = "warn",
+    mode = "check",
+    visibility = ["//visibility:public"],
+)

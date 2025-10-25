@@ -17,6 +17,7 @@ sh_binary(
     srcs = ["clang_tidy_run.sh"],
     visibility = ["//visibility:public"],
 )
+
 sh_binary(
     name = "clang_format_check",
     srcs = ["clang_format_run.sh"],
