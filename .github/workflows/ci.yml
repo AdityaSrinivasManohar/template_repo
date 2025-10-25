@@ -31,6 +31,7 @@ jobs:
         uses: devcontainers/ci@v0.3
         with:
           imageName: ghcr.io/adsm/devcontainer
+          push: false
           runCmd: echo "✅ DevContainer built"
   
   # Run linters inside cached DevContainer
