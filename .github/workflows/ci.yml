@@ -18,15 +18,6 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
 
-      - name: Cache Bazel build outputs
-        uses: actions/cache@v4
-        with:
-          path: |
-            ~/.cache/bazel
-          key: bazel-${{ runner.os }}-${{ hashFiles('**/MODULE.bazel', '**/*.bzl', '**/BUILD') }}
-          restore-keys: |
-            bazel-${{ runner.os }}-
-
       - name: Build DevContainer image
         uses: devcontainers/ci@v0.3
         with:
@@ -41,14 +32,6 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
-
-      - name: Restore Bazel cache
-        uses: actions/cache@v4
-        with:
-          path: ~/.cache/bazel
-          key: bazel-${{ runner.os }}-${{ hashFiles('**/MODULE.bazel', '**/*.bzl', '**/BUILD') }}
-          restore-keys: |
-            bazel-${{ runner.os }}-
 
       - name: Run linter and format checks
         uses: devcontainers/ci@v0.3
@@ -70,14 +53,6 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
-
-      - name: Restore Bazel cache
-        uses: actions/cache@v4
-        with:
-          path: ~/.cache/bazel
-          key: bazel-${{ runner.os }}-${{ hashFiles('**/MODULE.bazel', '**/*.bzl', '**/BUILD') }}
-          restore-keys: |
-            bazel-${{ runner.os }}-
 
       - name: Test if build succeeds
         uses: devcontainers/ci@v0.3
