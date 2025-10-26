@@ -58,6 +58,7 @@ Follow the same structure as the eigen module. Hopefully there is a bazel module
 - [bazel compile command extractor](https://github.com/hedronvision/bazel-compile-commands-extractor) which makes vscode clangd extension work right
 
 ## What's done
+- [x] bazel autocomplete
 - [x] hermetic cpp toolchain llvm
 - [x] hermetic cpp linting and formatting
 - [x] hermetic python and ruff linting + formatting
