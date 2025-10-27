@@ -8,7 +8,7 @@ cc_binary(
 )
 
 ros2_cpp_binary(
-    name = "listener",
+    name = "cpp_listener",
     srcs = ["cpp_listener.cpp"],
     deps = [
         "@ros2_common_interfaces//:cpp_std_msgs",

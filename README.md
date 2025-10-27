@@ -13,6 +13,21 @@ Havent written any tests yet but to test everything
 bazel test //...
 ```
 
+## Ros 2
+Comes with the [rules_ros](https://github.com/mvukov/rules_ros2). Some simple debugging tools have aliases such as
+```
+bazel run ros2_topic
+bazel run ros2_bag
+```
+
+To run some simple examples
+```
+bazel run //example/python:py_talker
+
+# In another terminal run 
+bazel run //example/cpp:cpp_listener
+```
+
 ## Linting
 Contains the ruff linter for python
 ```
@@ -56,6 +71,7 @@ Follow the same structure as the eigen module. Hopefully there is a bazel module
 - [clang-tidy bazel](https://github.com/erenon/bazel_clang_tidy)
 - [clang-format bazel](https://github.com/oliverlee/bazel_clang_format)
 - [bazel compile command extractor](https://github.com/hedronvision/bazel-compile-commands-extractor) which makes vscode clangd extension work right
+- [rules_ros2](https://github.com/mvukov/rules_ros2)
 
 ## What's done
 - [x] bazel autocomplete
@@ -65,6 +81,4 @@ Follow the same structure as the eigen module. Hopefully there is a bazel module
 - [x] setup aliases to make everything easier to check and run
 - [x] get the clangd vscode toolchain to work with bazel
 - [x] renovate bot
-
-## Next Steps
-- [ ] add bazel ros2
+- [x] add bazel ros2
