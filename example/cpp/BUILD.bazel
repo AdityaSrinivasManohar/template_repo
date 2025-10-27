@@ -1,7 +1,17 @@
+load("@com_github_mvukov_rules_ros2//ros2:cc_defs.bzl", "ros2_cpp_binary")
 load("@rules_cc//cc:defs.bzl", "cc_binary")
 
 cc_binary(
     name = "hello_world_cpp",
     srcs = ["hello_world.cpp"],
     deps = ["@eigen"],
+)
+
+ros2_cpp_binary(
+    name = "cpp_listener",
+    srcs = ["cpp_listener.cpp"],
+    deps = [
+        "@ros2_common_interfaces//:cpp_std_msgs",
+        "@ros2_rclcpp//:rclcpp",
+    ],
 )

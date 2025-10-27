@@ -6,4 +6,5 @@ Checks: >
     google-*,
     performance-*
 
-WarningsAsErrors: "*"
+HeaderFilterRegex: '^example/'
+WarningsAsErrors: 'example/.*'

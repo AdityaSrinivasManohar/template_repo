@@ -98,5 +98,4 @@ fi
 #    . /etc/bash_completion
 #fi
 
-source /opt/ros/jazzy/setup.bash
 source /etc/bash_completion.d/bazel_completion.bash
