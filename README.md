@@ -8,6 +8,11 @@ Build everything using
 bazel build //...
 ```
 
+Havent written any tests yet but to test everything
+```
+bazel test //...
+```
+
 ## Linting
 Contains the ruff linter for python
 ```
@@ -38,6 +43,13 @@ The clangd extension does not show any formatting errors when working on the fil
 
 I did not use [rules_lint](https://github.com/aspect-build/rules_lint) cause it had a lot of overhead with aspect and I found easier ways to set things up.
 
+## Adding/updating deps
+### For python
+Simply add stuff to the [requirements.in](third_party/python/requirements.in) file and follow the instructions in this [doc](third_party/python/README.md)
+
+### For cpp
+Follow the same structure as the eigen module. Hopefully there is a bazel module that can easily be used, if not you will have to use a git_override rule.
+
 ## Sources
 - [ruff bazel](https://github.com/philipuvarov/bazel-ruff)
 - [bazel llvm](https://github.com/bazel-contrib/toolchains_llvm)
@@ -51,7 +63,7 @@ I did not use [rules_lint](https://github.com/aspect-build/rules_lint) cause it 
 - [x] hermetic python and ruff linting + formatting
 - [x] setup aliases to make everything easier to check and run
 - [x] get the clangd vscode toolchain to work with bazel
+- [x] renovate bot
 
 ## Next Steps
-- [ ] renovate bot
 - [ ] add bazel ros2
