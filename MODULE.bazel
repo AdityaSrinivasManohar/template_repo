@@ -87,6 +87,7 @@ use_repo(
     "ros2_robot_state_publisher",
     "ros2_unique_identifier_msgs",
     "ros2cli",
+    "ros2_rosbag2",
     # Required for bazel run:
     "ros2_rclpy",
     "ros2_rosidl",

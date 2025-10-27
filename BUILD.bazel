@@ -35,3 +35,16 @@ alias(
     actual = "//tools/lint:clang_format_fix",
     visibility = ["//visibility:public"],
 )
+
+## ros2 tools
+alias(
+    name = "ros2_bag",
+    actual = "//tools/ros2:bag",
+    visibility = ["//visibility:public"],
+)
+
+alias(
+    name = "ros2_topic",
+    actual = "//tools/ros2:topic",
+    visibility = ["//visibility:public"],
+)
