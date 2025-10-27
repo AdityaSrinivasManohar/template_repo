@@ -13,9 +13,8 @@ ros2_bag(
 
 ros2_topic(
     name = "topic",
+    visibility = ["//visibility:public"],
     deps = [
         "@ros2_common_interfaces//:py_std_msgs",
     ],
-    visibility = ["//visibility:public"],
 )
-
