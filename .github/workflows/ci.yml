@@ -16,7 +16,7 @@ jobs:
       image-name: template_repo/devcontainer
     steps:
       - name: Checkout code
-        uses: actions/checkout@v5
+        uses: actions/checkout@v6
 
       - name: Build DevContainer image
         uses: devcontainers/ci@v0.3
@@ -31,7 +31,7 @@ jobs:
     needs: setup
     steps:
       - name: Checkout code
-        uses: actions/checkout@v5
+        uses: actions/checkout@v6
 
       - name: Run linter and format checks
         uses: devcontainers/ci@v0.3
@@ -52,7 +52,7 @@ jobs:
     needs: setup
     steps:
       - name: Checkout code
-        uses: actions/checkout@v5
+        uses: actions/checkout@v6
 
       - name: Test if build succeeds
         uses: devcontainers/ci@v0.3
